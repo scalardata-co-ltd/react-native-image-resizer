@@ -39,7 +39,8 @@ RCT_REMAP_METHOD(createResizedImage, uri:(NSString *)uri width:(double)width hei
                 [NSException raise:moduleName format:@"Invalid output path."];
             }
 
-            NSURL * fileURL = [[NSURL alloc] initWithString:uri];
+            NSURL *baseURL = [NSURL fileURLWithPath:@"file://"];
+            NSURL * fileURL = [[NSURL alloc] initWithString:uri relativeToURL:baseURL];
 
             NSError *err;
             if ([fileURL checkResourceIsReachableAndReturnError:&err] == NO){
