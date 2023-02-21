@@ -359,7 +359,7 @@ public class ImageResizer {
     final int height = options.outHeight;
     final int width = options.outWidth;
 
-    int inSampleSize = 1;
+    int inSampleSize = 2;
 
     if (height > reqHeight || width > reqWidth) {
       final int halfHeight = height / 2;
